@@ -1,0 +1,7 @@
+C:\Users\Dell 7510F8\source\repos\CarDealershipAPI\obj\Debug\net8.0\CarDealershipAPI.csproj.AssemblyReference.cache
+C:\Users\Dell 7510F8\source\repos\CarDealershipAPI\obj\Debug\net8.0\CarDealershipAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dell 7510F8\source\repos\CarDealershipAPI\obj\Debug\net8.0\CarDealershipAPI.AssemblyInfoInputs.cache
+C:\Users\Dell 7510F8\source\repos\CarDealershipAPI\obj\Debug\net8.0\CarDealershipAPI.AssemblyInfo.cs
+C:\Users\Dell 7510F8\source\repos\CarDealershipAPI\obj\Debug\net8.0\CarDealershipAPI.csproj.CoreCompileInputs.cache
+C:\Users\Dell 7510F8\source\repos\CarDealershipAPI\obj\Debug\net8.0\CarDealershipAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Dell 7510F8\source\repos\CarDealershipAPI\obj\Debug\net8.0\CarDealershipAPI.MvcApplicationPartsAssemblyInfo.cache
