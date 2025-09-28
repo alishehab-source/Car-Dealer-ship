@@ -1,41 +1,18 @@
-﻿using CarDealershipAPI.DTOs.Customer;
+﻿using CarDealershipAPI.DTOs.common;
+using CarDealershipAPI.DTOs.Customer;
 
 namespace CarDealershipAPI.Services.Interfaces
 {
     public interface ICustomerService
     {
-        Task<CustomerResponseDto> CreateCustomerAsync(CreateCustomerDto dto);
-        Task<CustomerResponseDto?> GetCustomerByIdAsync(int id);
-        Task<CustomerResponseDto> UpdateCustomerAsync(UpdateCustomerDto dto);
+        Task<PagedResult<CustomerDto>> GetAllCustomersAsync(CustomerSearchDto searchDto);
+        Task<CustomerDto?> GetCustomerByIdAsync(int id);
+        Task<CustomerDto> CreateCustomerAsync(CreateCustomerDto createCustomerDto);
+        Task<CustomerDto?> UpdateCustomerAsync(int id, UpdateCustomerDto updateCustomerDto);
         Task<bool> DeleteCustomerAsync(int id);
-
-        Task<IEnumerable<CustomerListDto>> SearchCustomersAsync(CustomerSearchDto searchDto);
-        Task<CustomerDetailsDto?> GetCustomerDetailsAsync(int id);
-        Task<bool> RecordCustomerContactAsync(CustomerContactDto dto);
-        Task<bool> UpdateCustomerStatusAsync(int customerId, string status);
-        Task<bool> ScheduleFollowUpAsync(int customerId, DateTime followUpDate, string notes);
-
-        Task<bool> IsPhoneNumberUniqueAsync(string phone, int? excludeCustomerId = null);
-        Task<bool> IsEmailUniqueAsync(string email, int? excludeCustomerId = null);
-        Task<bool> ValidateCustomerDataAsync(CreateCustomerDto dto);
-        Task<CustomerStatisticsDto> CalculateCustomerScoreAsync(int customerId);
-        Task<string> DetermineCustomerSegmentAsync(int customerId);
-
-        Task<IEnumerable<CustomerListDto>> GetHotLeadsAsync();
-        Task<IEnumerable<CustomerListDto>> GetCustomersNeedingFollowUpAsync();
-        Task<IEnumerable<CustomerListDto>> GetLostCustomersAsync(int daysThreshold = 180);
-        Task<bool> ConvertLeadToCustomerAsync(int customerId);
-        Task<decimal> CalculateLeadConversionRateAsync();
-
-        Task<CustomerStatisticsDto> GetCustomerStatisticsAsync(int customerId);
-        Task<IEnumerable<CustomerSummaryDto>> GetTopCustomersAsync(int count = 10);
-        Task<decimal> GetCustomerLifetimeValueAsync(int customerId);
-        Task<int> GetTotalCustomersCountAsync();
-        Task<decimal> GetAverageCustomerBudgetAsync();
-
-        Task<IEnumerable<CarRecommendationDto>> GetRecommendedCarsAsync(int customerId);
-        Task<IEnumerable<CustomerListDto>> FindMatchingCustomersForCarAsync(int carId);
-        Task<int> CalculateCarMatchScoreAsync(int customerId, int carId);
+        Task<CustomerWithSalesDto?> GetCustomerWithSalesAsync(int id);
+        Task<List<CustomerSummaryDto>> GetTopCustomersAsync(int count = 10);
+        Task<bool> IsEmailExistsAsync(string email, int? excludeId = null);
+        Task<bool> IsIdentityNumberExistsAsync(string identityNumber, int? excludeId = null);
     }
-
 }

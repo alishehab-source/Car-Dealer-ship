@@ -10,94 +10,42 @@ namespace CarDealershipAPI.DTOs.Employee
 
         [Required(ErrorMessage = "البريد الإلكتروني مطلوب")]
         [EmailAddress(ErrorMessage = "البريد الإلكتروني غير صحيح")]
-        [StringLength(100, ErrorMessage = "البريد الإلكتروني يجب ألا يزيد عن 100 حرف")]
+        [StringLength(100, ErrorMessage = "البريد الإلكتروني لا يجب أن يتجاوز 100 حرف")]
         public string Email { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "رقم الهاتف مطلوب")]
-        [StringLength(20, ErrorMessage = "رقم الهاتف يجب ألا يزيد عن 20 حرف")]
+        [StringLength(20, MinimumLength = 7, ErrorMessage = "رقم الهاتف يجب أن يكون بين 7 و 20 رقم")]
         [RegularExpression(@"^[\+]?[0-9\-\s\(\)]{7,20}$", ErrorMessage = "رقم الهاتف غير صحيح")]
         public string Phone { get; set; } = string.Empty;
 
-        [StringLength(200, ErrorMessage = "العنوان يجب ألا يزيد عن 200 حرف")]
-        public string? Address { get; set; }
-
-        [StringLength(50, ErrorMessage = "المدينة يجب ألا تزيد عن 50 حرف")]
-        public string? City { get; set; }
-
-        [StringLength(50, ErrorMessage = "المحافظة يجب ألا تزيد عن 50 حرف")]
-        public string? State { get; set; }
-
-        [StringLength(10, ErrorMessage = "الرمز البريدي يجب ألا يزيد عن 10 أرقام")]
-        [RegularExpression(@"^[0-9]{5,10}$", ErrorMessage = "الرمز البريدي يجب أن يكون أرقام فقط")]
-        public string? ZipCode { get; set; }
-
-        [Required(ErrorMessage = "تاريخ الميلاد مطلوب")]
-        public DateTime DateOfBirth { get; set; }
-
-        [RegularExpression("^(Male|Female|Other)$", ErrorMessage = "الجنس يجب أن يكون Male أو Female أو Other")]
-        public string? Gender { get; set; }
-
-        [RegularExpression("^(Single|Married|Divorced|Widowed)$", ErrorMessage = "الحالة الاجتماعية غير صحيحة")]
-        public string? MaritalStatus { get; set; }
-
         [Required(ErrorMessage = "رقم الهوية مطلوب")]
-        [StringLength(20, ErrorMessage = "رقم الهوية يجب ألا يزيد عن 20 حرف")]
+        [StringLength(20, MinimumLength = 10, ErrorMessage = "رقم الهوية يجب أن يكون بين 10 و 20 رقم")]
         public string IdentityNumber { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "نوع الهوية مطلوب")]
-        [RegularExpression("^(NationalID|Passport|ResidencePermit)$", ErrorMessage = "نوع الهوية غير صحيح")]
-        public string IdentityType { get; set; } = "NationalID";
-
         [Required(ErrorMessage = "تاريخ التوظيف مطلوب")]
+        [DataType(DataType.Date)]
         public DateTime HireDate { get; set; }
 
-        [Required(ErrorMessage = "المسمى الوظيفي مطلوب")]
-        [RegularExpression("^(Manager|SalesRep|Accountant|Mechanic|Receptionist|Admin|Other)$", ErrorMessage = "المسمى الوظيفي غير صحيح")]
+        [Required(ErrorMessage = "المنصب مطلوب")]
+        [RegularExpression("^(Manager|SalesRep|Admin)$", ErrorMessage = "المنصب يجب أن يكون Manager أو SalesRep أو Admin")]
         public string Role { get; set; } = "SalesRep";
 
         [Required(ErrorMessage = "القسم مطلوب")]
-        [RegularExpression("^(Sales|Finance|Service|Administration|Management|IT|HR)$", ErrorMessage = "القسم غير صحيح")]
+        [RegularExpression("^(Sales|Administration|Management)$", ErrorMessage = "القسم يجب أن يكون Sales أو Administration أو Management")]
         public string Department { get; set; } = "Sales";
 
         [Required(ErrorMessage = "الراتب الأساسي مطلوب")]
         [Range(0.01, 999999.99, ErrorMessage = "الراتب الأساسي يجب أن يكون أكبر من صفر")]
         public decimal BaseSalary { get; set; }
 
-        [Range(0, 1, ErrorMessage = "نسبة العمولة يجب أن تكون بين 0 و 1")]
+        [Range(0, 1, ErrorMessage = "معدل العمولة يجب أن يكون بين 0 و 1")]
         public decimal CommissionRate { get; set; } = 0.05m;
 
-        [Range(0, 999999.99, ErrorMessage = "الحد الأقصى للعمولة يجب أن يكون رقم موجب")]
-        public decimal? MaxCommission { get; set; }
-
-        [RegularExpression("^(FullTime|PartTime|Contract|Intern|Consultant)$", ErrorMessage = "نوع العمل غير صحيح")]
-        public string EmploymentType { get; set; } = "FullTime";
+        [Required(ErrorMessage = "حالة الموظف مطلوبة")]
+        [RegularExpression("^(Active|Inactive|OnLeave)$", ErrorMessage = "حالة الموظف يجب أن تكون Active أو Inactive أو OnLeave")]
+        public string Status { get; set; } = "Active";
 
         public int? SupervisorId { get; set; }
-
-        [StringLength(100, ErrorMessage = "المؤهل العلمي يجب ألا يزيد عن 100 حرف")]
-        public string? Education { get; set; }
-
-        [StringLength(500, ErrorMessage = "المهارات يجب ألا تزيد عن 500 حرف")]
-        public string? Skills { get; set; }
-
-        [StringLength(100, ErrorMessage = "الشهادات يجب ألا تزيد عن 100 حرف")]
-        public string? Certifications { get; set; }
-
-        [RegularExpression("^(A\\+|A\\-|B\\+|B\\-|AB\\+|AB\\-|O\\+|O\\-)$", ErrorMessage = "فصيلة الدم غير صحيحة")]
-        public string? BloodType { get; set; }
-
-        [StringLength(100, ErrorMessage = "بيانات الاتصال الطارئ يجب ألا تزيد عن 100 حرف")]
-        public string? EmergencyContact { get; set; }
-
-        [StringLength(20, ErrorMessage = "رقم الاتصال الطارئ يجب ألا يزيد عن 20 حرف")]
-        [RegularExpression(@"^[\+]?[0-9\-\s\(\)]{7,20}$", ErrorMessage = "رقم الاتصال الطارئ غير صحيح")]
-        public string? EmergencyPhone { get; set; }
-
-        [StringLength(1000, ErrorMessage = "الملاحظات يجب ألا تزيد عن 1000 حرف")]
-        public string? Notes { get; set; }
-
-        [Url(ErrorMessage = "رابط الصورة الشخصية غير صحيح")]
-        public string? ProfileImageUrl { get; set; }
     }
 
 }

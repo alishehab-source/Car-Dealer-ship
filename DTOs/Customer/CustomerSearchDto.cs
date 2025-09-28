@@ -3,30 +3,22 @@
     public class CustomerSearchDto
     {
         public string? Name { get; set; }
-        public string? Phone { get; set; }
         public string? Email { get; set; }
-        public string? Status { get; set; }
-        public decimal? MinBudget { get; set; }
-        public decimal? MaxBudget { get; set; }
-        public string? PreferredMake { get; set; }
-        public string? Source { get; set; }
-        public DateTime? CreatedAfter { get; set; }
-        public DateTime? CreatedBefore { get; set; }
-        public DateTime? LastContactAfter { get; set; }
-        public DateTime? LastContactBefore { get; set; }
-        public bool? NeedsFollowUp { get; set; }
-        public int? MinRating { get; set; }
-        public int? MaxRating { get; set; }
-        public string? SearchTerm { get; set; }
+        public string? Phone { get; set; }
+        public string? IdentityNumber { get; set; }
+        public string? IdentityType { get; set; }
+        public string? Gender { get; set; }
+        public int? MinAge { get; set; }
+        public int? MaxAge { get; set; }
+        public DateTime? RegisteredAfter { get; set; }
+        public DateTime? RegisteredBefore { get; set; }
+        public bool? HasPurchases { get; set; }
 
-        // Pagination
-        public int PageNumber { get; set; } = 1;
+        public int Page { get; set; } = 1;
         public int PageSize { get; set; } = 10;
 
-        // Sorting
         public string? SortBy { get; set; } = "CreatedDate";
         public bool SortDescending { get; set; } = true;
     }
-
 
 }

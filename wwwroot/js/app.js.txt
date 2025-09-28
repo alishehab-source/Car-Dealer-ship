@@ -1,0 +1,127 @@
+const API_BASE_URL = '/api';
+
+// Load dashboard data on page load
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('معرض السيارات جاهز!');
+    loadDashboard();
+});
+
+async function loadDashboard() {
+    try {
+        const response = await fetch(${API_BASE_URL}/dashboard/stats);
+        const result = await response.json();
+        
+        if (result.success) {
+            document.getElementById('total-cars').textContent = result.data.totalCars || 0;
+            document.getElementById('total-customers').textContent = result.data.totalCustomers || 0;
+            document.getElementById('total-sales').textContent = result.data.totalSalesThisMonth || 0;
+        }
+    } catch (error) {
+        console.log('سيتم تحميل البيانات عند تشغيل الـ API');
+    }
+}
+
+async function loadCars() {
+    const content = document.getElementById('content');
+    content.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> جاري تحميل السيارات...</div>';
+    
+    try {
+        const response = await fetch(${API_BASE_URL}/cars);
+        const result = await response.json();
+        
+        if (result.success && result.data.data.length > 0) {
+            displayCars(result.data.data);
+        } else {
+            content.innerHTML = '<h2>لا توجد سيارات</h2><p>لم يتم العثور على أي سيارات في النظام</p>';
+        }
+    } catch (error) {
+        content.innerHTML = '<h2>خطأ في التحميل</h2><p>تأكد من تشغيل الـ API أولاً: <code>dotnet run</code></p>';
+        console.error('Error:', error);
+    }
+}
+
+function displayCars(cars) {
+    const content = document.getElementById('content');
+    
+    const table = `
+        <h2>قائمة السيارات (${cars.length})</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>الماركة</th>
+                    <th>الموديل</th>
+                    <th>السنة</th>
+                    <th>السعر</th>
+                    <th>الحالة</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${cars.map(car => `
+                    <tr>
+                        <td>${car.make}</td>
+                        <td>${car.model}</td>
+                        <td>${car.year}</td>
+                        <td>${formatPrice(car.price)}</td>
+                        <td>${translateStatus(car.status)}</td>
+                    </tr>
+                `).join('')}
+            </tbody>
+        </table>
+    `;
+    
+    content.innerHTML = table;
+}
+
+async function loadCustomers() {
+    const content = document.getElementById('content');
+    content.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> جاري تحميل العملاء...</div>';
+    
+    try {
+        const response = await fetch(${API_BASE_URL}/customers);
+        const result = await response.json();
+        
+        if (result.success) {
+            content.innerHTML = <h2>العملاء</h2><p>تم العثور على ${result.data.totalRecords} عميل في النظام</p>;
+        } else {
+            content.innerHTML = '<h2>لا يوجد عملاء</h2>';
+        }
+    } catch (error) {
+        content.innerHTML = '<h2>خطأ في التحميل</h2><p>تأكد من تشغيل الـ API أولاً: <code>dotnet run</code></p>';
+    }
+}
+
+async function loadSales() {
+    const content = document.getElementById('content');
+    content.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> جاري تحميل المبيعات...</div>';
+    
+    try {
+        const response = await fetch(${API_BASE_URL}/sales);
+        const result = await response.json();
+        
+        if (result.success) {
+            content.innerHTML = <h2>المبيعات</h2><p>تم العثور على ${result.data.totalRecords} عملية بيع</p>;
+        } else {
+            content.innerHTML = '<h2>لا توجد مبيعات</h2>';
+        }
+    } catch (error) {
+        content.innerHTML = '<h2>خطأ في التحميل</h2><p>تأكد من تشغيل الـ API أولاً: <code>dotnet run</code></p>';
+    }
+}
+
+// Utility functions
+function formatPrice(price) {
+    return new Intl.NumberFormat('ar-EG', {
+        style: 'currency',
+        currency: 'EGP',
+        minimumFractionDigits: 0
+    }).format(price);
+}
+
+function translateStatus(status) {
+    const statusMap = {
+        'Available': 'متاحة',
+        'Sold': 'مباعة', 
+        'Reserved': 'محجوزة'
+    };
+    return statusMap[status] || status;
+}

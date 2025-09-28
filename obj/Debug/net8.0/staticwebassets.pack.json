@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Dell 7510F8\\source\\repos\\CarDealershipAPI\\wwwroot\\Index.html.txt",
+      "PackagePath": "staticwebassets\\Index.html.txt"
+    },
+    {
+      "Id": "C:\\Users\\Dell 7510F8\\source\\repos\\CarDealershipAPI\\wwwroot\\css\\style.css.txt",
+      "PackagePath": "staticwebassets\\css\\style.css.txt"
+    },
+    {
+      "Id": "C:\\Users\\Dell 7510F8\\source\\repos\\CarDealershipAPI\\wwwroot\\js\\app.js.txt",
+      "PackagePath": "staticwebassets\\js\\app.js.txt"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CarDealershipAPI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.CarDealershipAPI.props",
+      "PackagePath": "build\\CarDealershipAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.CarDealershipAPI.props",
+      "PackagePath": "buildMultiTargeting\\CarDealershipAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.CarDealershipAPI.props",
+      "PackagePath": "buildTransitive\\CarDealershipAPI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

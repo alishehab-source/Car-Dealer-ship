@@ -29,7 +29,7 @@ namespace CarDealershipAPI.Models
         public DateTime? ActualEndTime { get; set; }
 
         [Range(0, 999, ErrorMessage = "المسافة المقطوعة يجب أن تكون رقم موجب")]
-        public int? DistanceCovered { get; set; } // في الكيلومترات
+        public int? DistanceCovered { get; set; }
 
         [Range(0, 999999, ErrorMessage = "قراءة العداد قبل التجربة يجب أن تكون رقم موجب")]
         public int? MileageBefore { get; set; }
@@ -38,10 +38,10 @@ namespace CarDealershipAPI.Models
         public int? MileageAfter { get; set; }
 
         [Range(0, 100, ErrorMessage = "مستوى الوقود قبل التجربة يجب أن يكون بين 0 و 100")]
-        public int? FuelLevelBefore { get; set; } // نسبة مئوية
+        public int? FuelLevelBefore { get; set; } 
 
         [Range(0, 100, ErrorMessage = "مستوى الوقود بعد التجربة يجب أن يكون بين 0 و 100")]
-        public int? FuelLevelAfter { get; set; } // نسبة مئوية
+        public int? FuelLevelAfter { get; set; }
 
         [Required(ErrorMessage = "حالة تجربة القيادة مطلوبة")]
         [StringLength(20, ErrorMessage = "حالة تجربة القيادة يجب ألا تزيد عن 20 حرف")]
@@ -158,7 +158,7 @@ namespace CarDealershipAPI.Models
         public string? TrafficCondition { get; set; }
 
         [Range(-50, 60, ErrorMessage = "درجة الحرارة يجب أن تكون بين -50 و 60")]
-        public int? Temperature { get; set; } // درجة مئوية
+        public int? Temperature { get; set; }
 
         public bool RequiresFollowUp { get; set; } = true;
 
@@ -200,16 +200,12 @@ namespace CarDealershipAPI.Models
         [StringLength(100, ErrorMessage = "المستخدم المحدث يجب ألا يزيد عن 100 حرف")]
         public string? UpdatedBy { get; set; }
 
-        // Navigation Properties
         public Car Car { get; set; } = null!;
         public Customer Customer { get; set; } = null!;
         public Employee Employee { get; set; } = null!;
         public Sale? Sale { get; set; }
 
-        // Additional related entities (إضافة مستقبلية)
-        // public ICollection<TestDriveDocument> Documents { get; set; } = new List<TestDriveDocument>();
-        // public ICollection<TestDrivePhoto> Photos { get; set; } = new List<TestDrivePhoto>();
-        // public ICollection<TestDriveChecklistItem> ChecklistItems { get; set; } = new List<TestDriveChecklistItem>();
+
     }
 }
 

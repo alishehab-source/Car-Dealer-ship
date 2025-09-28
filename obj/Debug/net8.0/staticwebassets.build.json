@@ -1,0 +1,77 @@
+{
+  "Version": 1,
+  "Hash": "n1zj017eUlcI7r8XdEHbh+271ISSKmR/imbk9SJ272A=",
+  "Source": "CarDealershipAPI",
+  "BasePath": "_content/CarDealershipAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "CarDealershipAPI\\wwwroot",
+      "Source": "CarDealershipAPI",
+      "ContentRoot": "C:\\Users\\Dell 7510F8\\source\\repos\\CarDealershipAPI\\wwwroot\\",
+      "BasePath": "_content/CarDealershipAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Dell 7510F8\\source\\repos\\CarDealershipAPI\\wwwroot\\css\\style.css.txt",
+      "SourceId": "CarDealershipAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Dell 7510F8\\source\\repos\\CarDealershipAPI\\wwwroot\\",
+      "BasePath": "_content/CarDealershipAPI",
+      "RelativePath": "css/style.css.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\style.css.txt"
+    },
+    {
+      "Identity": "C:\\Users\\Dell 7510F8\\source\\repos\\CarDealershipAPI\\wwwroot\\Index.html.txt",
+      "SourceId": "CarDealershipAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Dell 7510F8\\source\\repos\\CarDealershipAPI\\wwwroot\\",
+      "BasePath": "_content/CarDealershipAPI",
+      "RelativePath": "Index.html.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Index.html.txt"
+    },
+    {
+      "Identity": "C:\\Users\\Dell 7510F8\\source\\repos\\CarDealershipAPI\\wwwroot\\js\\app.js.txt",
+      "SourceId": "CarDealershipAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Dell 7510F8\\source\\repos\\CarDealershipAPI\\wwwroot\\",
+      "BasePath": "_content/CarDealershipAPI",
+      "RelativePath": "js/app.js.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\app.js.txt"
+    }
+  ]
+}

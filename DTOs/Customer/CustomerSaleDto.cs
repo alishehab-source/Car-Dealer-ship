@@ -2,8 +2,8 @@
 {
     public class CustomerSaleDto
     {
-        public int Id { get; set; }
-        public string CarName { get; set; } = string.Empty;
+        public int SaleId { get; set; }
+        public string CarInfo { get; set; } = string.Empty;
         public decimal SalePrice { get; set; }
         public DateTime SaleDate { get; set; }
         public string Status { get; set; } = string.Empty;
